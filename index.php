@@ -43,7 +43,7 @@
                     <span id="password_error" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="6Lc5DcIZAAAAAH9U3LseprAS4PTCJvOEdy6gHX4w"></div>
+                    <div class="g-recaptcha" data-sitekey="Enter your captcha key"></div>
                     <span id="captcha_error" class="text-danger"></span>
                     </div>
                     <div class="form-group">
