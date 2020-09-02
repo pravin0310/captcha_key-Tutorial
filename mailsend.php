@@ -74,7 +74,7 @@ if(isset($_POST["first_name"]))
    $captcha_error = 'Captcha verification failed';
   }
  }
-
+//after validation to move this line 
  if($first_name_error == '' && $last_name_error == '' && $email_error == '' && $password_error == '' && $captcha_error == '')
  {
   $data = array(
