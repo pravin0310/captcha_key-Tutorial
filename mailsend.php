@@ -4,76 +4,78 @@
 
 if(isset($_POST["first_name"]))
 {
- $first_name = '';
- $last_name = '';
- $email = '';
- $password = '';
+        $first_name = '';
+        $last_name = '';
+        $email = '';
+        $password = '';
 
- $first_name_error = '';
- $last_name_error = '';
- $email_error = '';
- $password_error = '';
- $captcha_error = '';
+        $first_name_error = '';
+        $last_name_error = '';
+        $email_error = '';
+        $password_error = '';
+        $captcha_error = '';
 
- if(empty($_POST["first_name"]))
- {
-  $first_name_error = 'First name is required';
- }
- else
- {
-  $first_name = $_POST["first_name"];
- }
+// This is validation input below    
 
- if(empty($_POST["last_name"]))
- {
-  $last_name_error = 'Last name is required';
- }
- else
- {
-  $last_name = $_POST["last_name"];
- }
- if(empty($_POST["email"]))
- {
-  $email_error = 'Email is required';
- }
- else
- {
-  if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
-  {
-   $email_error = 'Invalid Email';
-  }
-  else
-  {
-   $email = $_POST["email"];
-  }
- }
+        if(empty($_POST["first_name"]))
+        {
+        $first_name_error = 'First name is required';
+        }
+        else
+        {
+        $first_name = $_POST["first_name"];
+        }
 
- if(empty($_POST["password"]))
- {
-  $password_error = 'Password is required';
- }
- else
- {
-  $password = $_POST["password"];
- }
+        if(empty($_POST["last_name"]))
+        {
+        $last_name_error = 'Last name is required';
+        }
+        else
+        {
+        $last_name = $_POST["last_name"];
+        }
+        if(empty($_POST["email"]))
+        {
+        $email_error = 'Email is required';
+        }
+        else
+        {
+        if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
+        {
+        $email_error = 'Invalid Email';
+        }
+        else
+        {
+        $email = $_POST["email"];
+        }
+        }
 
- if(empty($_POST['g-recaptcha-response']))
- {
-  $captcha_error = 'Captcha is required';
- }
- else
- {
-  $secret_key = 'Enter your captcha key';
+        if(empty($_POST["password"]))
+        {
+        $password_error = 'Password is required';
+        }
+        else
+        {
+        $password = $_POST["password"];
+        }
 
-  $response = file_get_contents('----captcha link you can get captcha key in google']);
+        if(empty($_POST['g-recaptcha-response']))
+        {
+        $captcha_error = 'Captcha is required';
+        }
+        else
+        {
+        $secret_key = 'Enter your captcha key';
 
-  $response_data = json_decode($response);
+        $response = file_get_contents('----captcha link your Email  can get captcha key in google']);
 
-  if(!$response_data->success)
-  {
-   $captcha_error = 'Captcha verification failed';
-  }
- }
+        $response_data = json_decode($response);
+
+        if(!$response_data->success)
+        {
+        $captcha_error = 'Captcha verification failed';
+        }
+        }
 //after validation to move this line 
  if($first_name_error == '' && $last_name_error == '' && $email_error == '' && $password_error == '' && $captcha_error == '')
  {
@@ -94,5 +96,5 @@ if(isset($_POST["first_name"]))
 
  echo json_encode($data);
 }
-
+//end program
 ?>
